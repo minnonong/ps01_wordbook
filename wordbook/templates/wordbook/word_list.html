@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>Wordbook</title>
+    </head>
+    <body>
+        <div>
+            <h1><a href="">Wordbook</a></h1>
+        </div>
+{% for word in words %}
+        <div>
+            <p>{{word.reg_date}}</p>
+            <p>{{word.text}}</p>
+        </div>
+{% endfor %}
+    </body>
+</html>
