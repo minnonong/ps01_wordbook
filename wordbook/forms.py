@@ -1,5 +1,5 @@
 from django import forms
-from .models import Word
+from .models import Word, Meaning
 
 class WordForm(forms.ModelForm):
     class Meta:

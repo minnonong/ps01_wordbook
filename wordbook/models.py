@@ -12,3 +12,10 @@ class Word(models.Model):
 
     def __str__(self):
         return self.text
+
+# 단어의 뜻
+class Meaning(models.Model):
+    word = models.ForeignKey(Word, on_delete = models.CASCADE)
+    meaning_text = models.CharField(max_length = 500)
+    def __str__(self):
+        return self.meaning_text
