@@ -1,0 +1,16 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.navbar-brand {
+    color: #ffffff;
+    font-weight: bold;
+}
+.nav > li {
+    width: 100px;
+    text-align: center;
+}
+.date {
+    color: #828282;
+}

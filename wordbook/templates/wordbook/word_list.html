@@ -1,16 +1,83 @@
+{% load staticfiles %}
 <html>
     <head>
-        <title>Wordbook</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>WordBook</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/wordbook.css' %}">
     </head>
     <body>
-        <div>
-            <h1><a href="">Wordbook</a></h1>
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header"><a class="navbar-brand" href="#">WordBook</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li class="nav_dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Day<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">D+3</a></li>
+                                <li><a href="#">D+7</a></li>
+                                <li><a href="#">D+15</a></li>
+                                <li><a href="#">D+30</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav_dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quiz<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">word</a></li>
+                                <li><a href="#">meaning</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+        <!-- Main component for a primary marketing message or call to action -->
+            <div class="dropdown" style="margin-bottom: 20px;">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    전체
+                    <span class="caret"></span>
+                    <input type="hidden" id="dropdownValue" value="" />
+                </button>
+                <ul id="dropdown_ul" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li>전체</li>
+                    <li role="separator" class="divider"></li>
+                    <li>암기</li>
+                    <li>미암기</li>
+                </ul>
+            </div>
+            <table class="table table-bordered" style="background-color: #ffffff; font-size:13px;">
+                <thead>
+                    <th style="text-align: center">단어</th>
+                    <th style="text-align: center">의미</th>
+                    <th style="text-align: center">암기일</th>
+                    <th style="text-align: center">암기여부</th>
+                </thead>
+                <tbody>
+                    {% for word in words %}
+                            <tr>
+                                <td>{{ word.text }}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
-{% for word in words %}
-        <div>
-            <p>{{word.reg_date}}</p>
-            <p>{{word.text}}</p>
-        </div>
-{% endfor %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+        $('.nav_dropdown').hover(function(){
+          $('.dropdown-toggle', this).trigger('click');
+        });
+        </script>
     </body>
 </html>
